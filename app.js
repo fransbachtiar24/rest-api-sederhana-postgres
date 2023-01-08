@@ -12,7 +12,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 // buat tabel
-news.createTabelNews(konek);
 
 // buatr sebuah routes
 app.use("/news", newsRoutes);
