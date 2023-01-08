@@ -25,9 +25,14 @@ router.post("/add", (req, res) => {
   connection.query(query, values, (err, result) => {
     if (err) {
       console.error(err);
-      res.status(500).send({ error: "Error inserting data into database" });
+      res.status(500).send({ error: "Error Menambahkan data" });
     } else {
-      res.send({ message: "Data inserted into database successfully" });
+      res.send({
+        status: 201,
+        data: {
+          message: "Data berhasil ditambah",
+        },
+      });
     }
   });
 });
