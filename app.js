@@ -5,6 +5,7 @@ const konek = require("./config/connections/connection");
 const news = require("./database/news");
 const newsRoutes = require("./routes/news");
 const bodyParser = require("body-parser");
+require("dotenv").config();
 
 // middleware
 app.use(cors());
@@ -17,6 +18,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use("/news", newsRoutes);
 
 // buat server local
-app.listen("5000", () => {
-  console.log("Koneksi to server https://localhost:5000");
+app.listen(process.env.PORT, () => {
+  console.log("Koneksi to server");
 });
