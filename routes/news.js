@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const connection = require("../config/connections/connection");
 
-// get akakl
+// get akaklsds
 router.get("/all", (req, res) => {
   connection.query("SELECT id, title, image FROM news", (error, results) => {
     if (error) throw error;
