@@ -11,7 +11,7 @@ const client = new Client({
 
 client.connect((err) => {
   if (err) {
-    console.err("Koneksi ke database gagal:", err.stack);
+    console.log("Koneksi ke database gagal:", err.stack);
   } else {
     console.log("Koneksi ke database berhasil");
   }
