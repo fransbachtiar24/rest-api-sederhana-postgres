@@ -238,7 +238,7 @@ router.get("/verify/:email", (req, res) => {
   );
 });
 
-// login
+// login (POST)
 router.post("/login", (req, res) => {
   const { email, password } = req.body;
   if (!email || !password) {
