@@ -79,7 +79,87 @@ router.post(
                 from: process.env.EMAIL_USERNAME,
                 to: req.body.email,
                 subject: "Verifikasi Email Anda",
-                html: `<p>Klik link berikut untuk verifikasi email Anda:</p> <a href="http://localhost:3000/auth/verify/${newUser.email}">Verifikasi Email</a>`,
+                html: `
+                <!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="ngawurNews">
+  <meta name="keywords" content="ngawurNews, Javascript, NodeJS, ExpressJS">
+  <meta name="author" content="Frans Bachtiar">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <style>
+    @import "https://fonts.googleapis.com/css2?family=Open+Sans&display=swap";
+    * {
+      font-family: "Open Sans", sans-serif;
+      box-sizing: border-box;
+    }
+    .auth-title {
+      text-align: center;
+      color: white;
+      margin: 0;
+      margin-top: 30px;
+      margin-bottom: 10px;
+    }
+    .auth-content {
+      border: 2px solid #0a1d37;
+      border-radius: 3px;
+      line-height: 30px;
+      max-width: 800px;
+      margin: 0 auto;
+      margin-bottom: 30px;
+      padding: 25px;
+    }
+    .auth-button {
+      background-color: #6c63ff;
+      text-decoration: none;
+      text-align: center;
+      border-radius: 5px;
+      font-weight: bold;
+      margin: 0 auto;
+      padding: 5px;
+      display: block;
+      width: 150px;
+  }
+  </style>
+  <title>Verify Your Account!</title>
+</head>
+<body style="background-color: #6c63ff; padding: 20px;">
+  <h1 class="auth-title">
+   NgawurNews.com
+  </h1>
+  <div class="auth-content" style="background-color: white;">
+    <p style="font-size: 20px;">Hello! Welcome To Our ngawurNews</p>
+    <hr>
+     <p>
+    You received this email because your account has been registered at ngawurNews
+    <br>
+    Immediately activate your account by clicking the button below.
+  </p>
+  <a
+  href="https://rest-api-sederhana-postgres-production-ba57.up.railway.app/auth/verify?email=${
+    req.body.email
+  }"
+  class="btn btn-primary"
+>
+  Activate Account
+</a>
+<p>
+  If you don't feel like registering an account at NgawurNews, please ignore this email.
+    <br>
+    Link alternatif: <a href="https://rest-api-sederhana-postgres-production-ba57.up.railway.app/auth/verify?email=${
+      req.body.email
+    }">${req.body.email}</a>
+  </p>
+   <hr>
+  
+  <p>Copyright &copy; ${new Date().getFullYear()} ngawurNews 
+   </div>
+</body>
+</html>
+                `,
               };
               transport.sendMail(mailOptions, (error, info) => {
                 if (error) {
@@ -313,12 +393,12 @@ router.post("/password/reset", (req, res) => {
     <br>
     Immediately activate your account by clicking the button below.
   </p>
-   <p>Klik <a href="http://localhost:3000/auth/password/change?token=${token}">link ini</a> untuk merubah password Anda</p>
+   <p>Klik <a href="https://rest-api-sederhana-postgres-production-ba57.up.railway.app/auth/password/change?token=${token}">link ini</a> untuk merubah password Anda</p>
 <p>
   If you don't feel like registering an account at NgawurNews, please ignore this email.
    <p>Token ini akan kedaluwarsa dalam 5 Menit.</p>
     <br>
-    Link alternatif: <a href="http://localhost:3000/auth/password/change?token=${token}">${token}</a>
+    Link alternatif: <a href="https://rest-api-sederhana-postgres-production-ba57.up.railway.app/auth/password/change?token=${token}">${token}</a>
   </p>
    <hr>
   <p>Copyright &copy; ${new Date().getFullYear()} ngawurNews 
