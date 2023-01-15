@@ -168,11 +168,8 @@ router.post(
                   });
                 }
                 res.status(200).send({
-                  status: true,
-                  data: {
-                    message:
-                      "Berhasil mendaftar, silahkan cek email Anda untuk verifikasi",
-                  },
+                  message:
+                    "Berhasil mendaftar, silahkan cek email Anda untuk verifikasi",
                 });
               });
             }
