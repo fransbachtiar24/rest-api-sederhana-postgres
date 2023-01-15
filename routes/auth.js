@@ -149,9 +149,9 @@ router.post(
 <p>
   If you don't feel like registering an account at NgawurNews, please ignore this email.
     <br>
-    Link alternatif: <a href="https://rest-api-sederhana-postgres-production-ba57.up.railway.app/auth/verify?email=${
-      req.body.email
-    }">${req.body.email}</a>
+    Link alternatif: <a href="https://rest-api-sederhana-postgres-production-ba57.up.railway.app/auth/verify/${
+      newUser.email
+    }">${newUser.email}</a>
   </p>
    <hr>
   
