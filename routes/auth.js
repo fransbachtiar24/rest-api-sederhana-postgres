@@ -13,8 +13,8 @@ router.post(
     check("nama").not().isEmpty().withMessage("Nama harus diisi"),
     check("email").isEmail().withMessage("Format email tidak valid"),
     check("password")
-      .isLength({ min: 8 })
-      .withMessage("Password minimal 8 karakter"),
+      .isLength({ min: 6 })
+      .withMessage("Password minimal 6 karakter"),
     check("confirmPassword").custom(
       (value, { req }) => value === req.body.password
     ),
@@ -22,7 +22,19 @@ router.post(
   (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-      return res.status(400).json({ errors: errors.array() });
+      let message = "";
+      if (errors.array().find((err) => err.param === "email")) {
+        message = "Format Email Tidak Valid";
+      } else if (errors.array().find((err) => err.param === "password")) {
+        message = "Password Minimal 6 Karakter";
+      } else if (
+        errors.array().find((err) => err.param === "confirmPassword")
+      ) {
+        message = "Confirm Password Tidak Sesuai";
+      } else if (errors.array().find((err) => err.param === "nama")) {
+        message = "Nama Harus Di isi";
+      }
+      return res.status(400).json({ errors: { message } });
     }
 
     // cek email apakah sudah terdaftar
