@@ -34,7 +34,7 @@ router.post(
       } else if (errors.array().find((err) => err.param === "nama")) {
         message = "Nama Harus Di isi";
       }
-      return res.status(400).json({ errors: { message } });
+      return res.status(400).json({ data: { message } });
     }
 
     // cek email apakah sudah terdaftar
