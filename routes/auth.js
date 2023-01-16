@@ -140,7 +140,7 @@ router.post(
   </p>
   <a
   href="https://rest-api-sederhana-postgres-production-ba57.up.railway.app/auth/verify?email=${
-    req.body.email
+    newUser.email
   }"
   class="btn btn-primary"
 >
@@ -230,6 +230,7 @@ router.get("/verify/:email", (req, res) => {
               res
                 .status(200)
                 .send({ message: "Email berhasil diverifikasi", token });
+              return res.redirect("https:localhost:3000/login");
             }
           );
         }
