@@ -151,12 +151,12 @@ router.post(
     Immediately activate your account by clicking the button below.
   </p>
   <a
-  href="https://rest-api-sederhana-postgres-production-ba57.up.railway.app/auth/verify/${
-    newUser.email
-  }"
-  class="btn btn-primary"
+ href="https://rest-api-sederhana-postgres-production-ba57.up.railway.app/auth/verify/${
+   newUser.email
+ }"
+  class="btn btn-success text-center"
 >
-  Activate Account
+ Verify Account
 </a>
 <p>
   If you don't feel like registering an account at NgawurNews, please ignore this email.
