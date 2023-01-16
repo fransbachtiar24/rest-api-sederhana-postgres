@@ -151,7 +151,7 @@ router.post(
     Immediately activate your account by clicking the button below.
   </p>
   <a
-  href="https://rest-api-sederhana-postgres-production-ba57.up.railway.app/auth/verify?email=${
+  href="https://rest-api-sederhana-postgres-production-ba57.up.railway.app/auth/verify/${
     newUser.email
   }"
   class="btn btn-primary"
@@ -242,7 +242,7 @@ router.get("/verify/:email", (req, res) => {
               res
                 .status(200)
                 .send({ message: "Email berhasil diverifikasi", token });
-              return res.redirect("https:localhost:3000/login");
+              return res.redirect("http://localhost:3000/login");
             }
           );
         }
