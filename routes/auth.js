@@ -439,6 +439,7 @@ router.get("/password/change", (req, res) => {
       },
     });
   });
+  return res.redirect("https:localhost:3000/confirmpassword");
 });
 
 // handle connfirm reset password
