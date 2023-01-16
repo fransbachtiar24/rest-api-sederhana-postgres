@@ -238,11 +238,7 @@ router.get("/verify/:email", (req, res) => {
                   .status(500)
                   .send({ message: "Kesalahan saat mengenerate token" });
               }
-
-              res
-                .status(200)
-                .send({ message: "Email berhasil diverifikasi", token });
-              return res.redirect("http://localhost:3000/login");
+              res.redirect("http://localhost:3000/login");
             }
           );
         }
